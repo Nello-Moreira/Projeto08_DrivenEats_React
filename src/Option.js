@@ -6,12 +6,12 @@ export default function Option(props) {
         img: props.optionInfos.img
     }
     return (
-        <li class="option">
+        <li className="option">
             <img src={option.img} alt="dessert option" />
             <p className="option-name">{option.name}</p>
             <p className="option-description">{option.description}</p>
             <p className="price">R$ {option.price}</p>
-            <ion-icon class="icon hidden" name="checkmark-circle"></ion-icon>
+            <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
         </li>
     )
 }

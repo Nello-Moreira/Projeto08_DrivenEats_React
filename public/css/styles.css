@@ -3,7 +3,7 @@
     --option-width: 172px;
     --illustration-width: 144px;
     --button-div-height: 92px;
-    --option-height: 250px;
+    --option-height: 240px;
     --price-and-checked-bottom: 10px;
 }
 
@@ -96,13 +96,11 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.25);
     ;
 }
-/* .option>div {
-    border-radius:4px;
-} */
+
 .option img {
     width: var(--illustration-width);
     height: 87px;
-    object-fit: scale-down;
+    object-fit: cover;
     object-position: center;
     border-radius: 4px;
 }
@@ -132,7 +130,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     color: #000000;
 }
 
-.icon {
+.option ion-icon {
     font-size: 20px;
     color: #32B72F;
     position: absolute;
