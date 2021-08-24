@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Section from "./Section";
+import ConfirmationButton from './ConfirmationButton';
 
 const menu = [
     {
@@ -52,7 +53,7 @@ export default function App() {
             <div className="content">
                 {menu.map((section, key) => (<Section id={section.id} options={section.options} key={key} />))}
             </div>
-
+            <ConfirmationButton/>
         </>
     )
 }

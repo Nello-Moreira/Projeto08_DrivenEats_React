@@ -11,7 +11,11 @@ export default function Option(props) {
             <p className="option-name">{option.name}</p>
             <p className="option-description">{option.description}</p>
             <p className="price">R$ {option.price}</p>
-            <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
+            <div className="quantity-container">
+                <button className="remove-button">-</button>
+                <p>0</p>
+                <button className="add-button">+</button>
+            </div>
         </li>
     )
 }
