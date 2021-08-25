@@ -1,14 +1,15 @@
 :root {
     --left-space: 21px;
     --option-width: 172px;
-    --illustration-width: 144px;
-    --button-div-height: 92px;
     --option-height: 240px;
-    --price-and-checked-bottom: 10px;
+    --illustration-width: 144px;
+    --button-div-height: 75px;
+    --price-and-quantity-bottom: 10px;
+    --bill-width: 50vw;
 }
 
 body {
-    background-color: #E5E5E5;
+    background-color: rgb(229, 229, 229);
 }
 
 ul {
@@ -21,7 +22,7 @@ ul {
 }
 
 ul::-webkit-scrollbar {
-    height: 5px;
+    height: 6px;
 }
 
 ul:hover::-webkit-scrollbar-track {
@@ -44,8 +45,8 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     z-index: 10;
     top: 0;
     left: 0;
-    padding: 18px var(--left-space);
-    margin-bottom: 31px;
+    padding: 5px var(--left-space);
+    margin-bottom: 20px;
     background-color: #CF2B2B;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
 }
@@ -70,7 +71,6 @@ ul:hover::-webkit-scrollbar-thumb:hover {
 }
 
 .section {
-    margin-left: var(--left-space);
     margin-bottom: 27px;
 }
 
@@ -78,6 +78,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     font-family: 'Righteous', cursive;
     color: #333333;
     font-size: 26px;
+    margin-left: var(--left-space);
     margin-bottom: 17px;
 }
 
@@ -94,7 +95,10 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     position: relative;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.25);
-    ;
+}
+
+.option:first-child {
+    margin-left: var(--left-space);
 }
 
 .option img {
@@ -124,7 +128,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
 
 .price {
     position: absolute;
-    bottom: var(--price-and-checked-bottom);
+    bottom: var(--price-and-quantity-bottom);
     font-size: 16px;
     font-weight: 400;
     color: #000000;
@@ -134,7 +138,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     font-size: 16px;
     position: absolute;
     right: calc((var(--option-width) - var(--illustration-width))/5);
-    bottom: var(--price-and-checked-bottom);
+    bottom: var(--price-and-quantity-bottom);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -161,7 +165,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     color: rgb(200, 0, 0);
 }
 
-.bottom-button {
+.bottom-button-container {
     position: fixed;
     bottom: 0;
     width: 100vw;
@@ -169,78 +173,70 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.bottom-button>input[type="button"] {
-    border-radius: 50px;
-    width: 450px;
-    Height: 61px;
+.bottom-button-container button {
+    width: 50vw;
+    height: 61px;
+}
+
+.confirmation-button {
     font-family: 'Roboto', sans-serif;
+    font-size: 22px;
     font-weight: 400;
-    font-size: 18px;
     color: #fff;
     border: none;
+    border-radius: 50px;
 }
 
-.button-enabled {
+.enabled-button {
     background-color: #32B72F;
     cursor: pointer;
 }
 
-.button-disabled {
+.disabled-button {
     background-color: #CBCBCB;
     cursor: not-allowed;
 }
 
-.bill-background {
-    background-color: rgba(255, 255, 255, 0.9);
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bill-confirmation {
-    width: 337px;
-    height: 355px;
-    border-radius: 9px;
-    background-color: #50D074;
-    font-family: 'Roboto', sans-serif;
-    font-size: 22px;
-    color: #FFFFFF;
+.order-buttons-container {
+    width: var(--bill-width);
+    margin: 25px var(--left-space);
+    gap: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.bill-confirmation input {
-    font-weight: 700;
-    height: 52px;
+.order-buttons-container>button:first-child {
+    width: 30vw;
+    height: 61px;
 }
 
-.bill-title {
-    height: 20px;
-    font-weight: 700;
-    height: 52px;
-    display: flex;
-    align-items: center;
+.cancel-button {
+    font-size: 20px;
+    color: rgba(119, 119, 119, 1);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .bill-body {
-    width: 90%;
-    height: auto;
-    margin: auto 0;
+    box-sizing: border-box;
+    width: var(--bill-width);
+    margin: 10px var(--left-space);
+    padding: 30px 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: space-between;
 }
 
 .bill-body>div p {
+    font-size: 22px;
     margin-bottom: 17px;
 }
 
@@ -254,26 +250,41 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     align-items: flex-end;
 }
 
-.bill-confirmation-button {
-    font-size: inherit;
-    color: #50D074;
-    width: 90%;
-    border: none;
-    background-color: #FFF;
-    border-radius: 100px;
-}
-
-.bill-cancel-button {
-    font-size: 20px;
-    color: inherit;
-    background-color: inherit;
-    border: none;
-}
-
 .active {
     box-shadow: inset 0px 0px 0px 5px #32B72F;
 }
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 800px) {
+    :root {
+        --bill-width: 90%;
+    }
+    .bottom-button-container button {
+        width: 70vw;
+    }
+    .bill-body {
+        margin: 0 auto;
+    }
+    .order-buttons-container {
+        margin: 50px auto 0;
+    }
+    .order-buttons-container>button:first-child {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --button-div-height: 70px;
+    }
+    .bottom-button-container button {
+        width: 95vw;
+    }
+    .order-buttons-container>button:first-child {
+        width: 90%;
+        height: 50px;
+    }
 }
