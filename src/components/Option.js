@@ -11,12 +11,18 @@ export default function Option(props) {
             <p className="option-name">{option.name}</p>
             <p className="option-description">{option.description}</p>
             <p className="price">R$ {option.price}</p>
-            <div className="quantity-container">
-                <button className="remove-button">-</button>
-                <p>0</p>
-                <button className="add-button">+</button>
-            </div>
+            {props.active ? <Quantity/> : null}
         </li>
+    )
+}
+
+function Quantity() {
+    return (
+        <div className="quantity-container hidden">
+            <button className="remove-button">-</button>
+            <p>0</p>
+            <button className="add-button">+</button>
+        </div>
     )
 }
 
