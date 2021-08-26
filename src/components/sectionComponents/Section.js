@@ -1,30 +1,27 @@
 import SectionTitle from './SectionTitle'
 import Option from '../optionComponents/Option'
-import React, { useState } from "react";
 
 export default function Section(props) {
     let activeChilds = [];
 
     const childActivationHandler = (child) => {
-        if (activeChilds.length === 0) {
+        const isNewChild = activeChilds.filter(element => element.id === child.id).length === 0;
+        if (isNewChild) {
             activeChilds.push(child);
+            props.parentRecordChanger(props.id, activeChilds);
             return;
         }
-        activeChilds.forEach((element, index) => {
+        if (child.itemQuantity === 0) {
+            activeChilds = activeChilds.filter(element => element.id !== child.id);
+            props.parentRecordChanger(props.id, activeChilds);
+            return;
+        }
+        activeChilds.forEach((element, index, thisArray) => {
             if (element.id === child.id) {
-                if(child.itemQuantity > 0){
-                    activeChilds[index] = child;
-                    return;
-                }
-                activeChilds.splice(index, 1)
-                return;
+                thisArray[index] = child;
             }
-            if (index === (activeChilds.length - 1)) {
-                activeChilds.push(child);
-                return;
-            }
-        });
-        console.log("activeChilds ", activeChilds);
+        })
+        props.parentRecordChanger(props.id, activeChilds);
     };
 
     return (

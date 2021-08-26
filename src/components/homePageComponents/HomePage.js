@@ -3,6 +3,7 @@ import ReviewOrderButton from './ReviewOrderButton';
 
 const menu = [
     {
+        id: "meal",
         title: "Primeiro, seu prato",
         options: [
             { name: "Vai no certo", description: "Macarronada tradicional com molho sugo", price: "20,00", img: "https://imgr.search.brave.com/NQTqE55F_o-w1wtZ0Zpp-OltK7lBbxe0McnMZmQ8jL4/fit/711/225/no/1/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5m/SVdTNDRhODJtbU5H/V3c3emMtclBBSGFF/OCZwaWQ9QXBp" },
@@ -17,6 +18,7 @@ const menu = [
         ]
     },
     {
+        id: "drink",
         title: "Agora, sua bebida",
         options: [
             { name: "Água mineiral", description: "Água uai!", price: "3,00", img: "https://imgr.search.brave.com/RwbgK9UclWVOfgw8Y295IitT_pP1pVLR2ZPoIUUDwUQ/fit/711/225/no/1/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/Z3JYeWktc1QyQWZK/bnpTd1ZrSjFBSGFF/OCZwaWQ9QXBp" },
@@ -31,6 +33,7 @@ const menu = [
         ]
     },
     {
+        id: "dessert",
         title: "Por fim, sua sobremesa",
         options: [
             { name: "Pudim", description: "Pudim", price: "4,00", img: "https://imgr.search.brave.com/8cWPZQ6xkOipZLJNHjf2jVfmdwdUEiPA2au_nYDhhlc/fit/844/225/no/1/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Z/czFMUlJYRTdhdF9s/Y2ZTU0t1dTRBSGFF/SyZwaWQ9QXBp" },
@@ -46,10 +49,21 @@ const menu = [
 ];
 
 export default function HomePage(props) {
+    const active = {
+        meal: {},
+        drink: {},
+        dessert: {}
+    };
+
+    const activeModifier = (section, activeOptions) => {
+        active[section] = activeOptions;
+        console.log("active: ", active);
+    }
+
     return (
         <>
             <div className="content">
-                {menu.map((section, key) => (<Section title={section.title} options={section.options} key={key} />))}
+                {menu.map((section, key) => (<Section id={section.id} title={section.title} options={section.options} parentRecordChanger={activeModifier} key={key} />))}
             </div>
             <ReviewOrderButton redirectTo={props.redirectTo} />
         </>
