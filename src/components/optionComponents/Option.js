@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import Quantity from "./Quantity"
+
 export default function Option(props) {
     const option = {
         name: props.optionInfos.name,
@@ -5,24 +8,17 @@ export default function Option(props) {
         price: priceHandler(props.optionInfos.price),
         img: props.optionInfos.img
     }
+
+    const [isActive, setIsActive] = useState(false);
+
     return (
-        <li className="option">
+        <li className={isActive ? "option active" : "option"} onClick={() => { setIsActive(true); }}>
             <img src={option.img} alt="dessert option" />
             <p className="option-name">{option.name}</p>
             <p className="option-description">{option.description}</p>
             <p className="price">R$ {option.price}</p>
-            {props.active ? <Quantity/> : null}
+            {isActive ? <Quantity /> : null}
         </li>
-    )
-}
-
-function Quantity() {
-    return (
-        <div className="quantity-container hidden">
-            <button className="remove-button">-</button>
-            <p>0</p>
-            <button className="add-button">+</button>
-        </div>
     )
 }
 

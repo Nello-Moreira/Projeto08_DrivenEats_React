@@ -1,4 +1,5 @@
-import Section from "./Section";
+import Section from "../sectionComponents/Section";
+import ReviewOrderButton from './ReviewOrderButton';
 
 const menu = [
     {
@@ -44,12 +45,13 @@ const menu = [
     }
 ];
 
-export default function HomePage() {
+export default function HomePage(props) {
     return (
         <>
             <div className="content">
                 {menu.map((section, key) => (<Section title={section.title} options={section.options} key={key} />))}
             </div>
+            <ReviewOrderButton redirectTo={props.redirectTo} />
         </>
     )
 }

@@ -1,8 +1,6 @@
 import Header from "./Header";
-import HomePage from "./HomePage";
-import ReviewOrderButton from './ReviewOrderButton';
-import ReviewPage from "./ReviewPage";
-import OrderButtonsContainer from "./OrderButtonsContainer";
+import HomePage from "./homePageComponents/HomePage";
+import ReviewPage from "./reviewPageComponents/ReviewPage";
 import {
     BrowserRouter as Router,
     Switch,
@@ -18,15 +16,13 @@ export default function App() {
                 <Switch>
                     <Route exact path="/">
                         <>
-                            <HomePage />
-                            <ReviewOrderButton redirectTo="/review" />
+                            <HomePage redirectTo="/review"/>
                         </>
                     </Route>
 
                     <Route path="/review">
                         <>
-                            <ReviewPage />
-                            <OrderButtonsContainer redirectTo="/" />
+                            <ReviewPage redirectTo="/"/>
                         </>
                     </Route>
                 </Switch>
