@@ -55,10 +55,6 @@ const activeOptions = {
     dessert: []
 };
 
-console.log("fora");
-console.log("homepage");
-
-
 export default function HomePage(props) {
     const isSectionEmpty = Object.values(activeOptions).map(optionsArray=>optionsArray.length>0);
     const isActiveOptionsFull = !(isSectionEmpty.includes(false));

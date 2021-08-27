@@ -8,9 +8,6 @@ import {
     Route
 } from "react-router-dom";
 
-let selectedOptions = {teste:"teste"};
-
-
 export default function App() {
     const [selectedOptions, setSelectedOptions] = useState({});
 
@@ -22,13 +19,13 @@ export default function App() {
                 <Switch>
                     <Route exact path="/">
                         <>
-                            <HomePage redirectTo="/review" saveOptions={setSelectedOptions}/>
+                            <HomePage redirectTo="/review" saveOptions={setSelectedOptions} />
                         </>
                     </Route>
 
                     <Route path="/review">
                         <>
-                            <ReviewPage redirectTo="/" selectedOptions = {selectedOptions}/>
+                            <ReviewPage redirectTo="/" selectedOptions={selectedOptions} />
                         </>
                     </Route>
                 </Switch>

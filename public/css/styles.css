@@ -46,7 +46,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     top: 0;
     left: 0;
     padding: 5px var(--left-space);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     background-color: #CF2B2B;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
 }
@@ -224,6 +224,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
 }
 
 .bill-body {
+    font-size: 22px;
     box-sizing: border-box;
     width: var(--bill-width);
     margin: 10px var(--left-space);
@@ -235,19 +236,33 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     justify-content: space-between;
 }
 
-.bill-body>div p {
-    font-size: 22px;
+.bill-item, .bill-quantity, .bill-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-quantity{
+    margin: 0 10px;
+}
+
+.bill-item>p {
+    text-align: left;
+}
+
+.bill-quantity>p {
+    text-align: center;
+}
+
+.bill-price>p {
+    text-align: right;
+}
+
+.bill-body p {
     margin-bottom: 17px;
 }
 
-.bill-body>div p:last-child {
+.bill-title {
     font-weight: 700;
-}
-
-.items-prices {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 }
 
 .active {
@@ -269,7 +284,7 @@ ul:hover::-webkit-scrollbar-thumb:hover {
         margin: 0 auto;
     }
     .order-buttons-container {
-        margin: 50px auto 0;
+        margin: 25px auto 0;
     }
     .order-buttons-container>button:first-child {
         width: 50%;
@@ -282,6 +297,10 @@ ul:hover::-webkit-scrollbar-thumb:hover {
     }
     .bottom-button-container button {
         width: 95vw;
+    }
+    .bill-body {
+        font-size: 18px;
+        padding: 30px 20px;
     }
     .order-buttons-container>button:first-child {
         width: 90%;

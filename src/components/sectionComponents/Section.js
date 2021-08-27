@@ -4,8 +4,6 @@ import Option from '../optionComponents/Option'
 export default function Section(props) {
     let activeChilds = props.activeChilds;
 
-    console.log("re-renderizou section: ", activeChilds);
-
     const childActivationHandler = (child) => {
         const isNewChild = activeChilds.filter(element => element.id === child.id).length === 0;
         if (isNewChild) {
@@ -15,7 +13,6 @@ export default function Section(props) {
         }
         if (child.itemQuantity === 0) {
             activeChilds = activeChilds.filter(element => element.id !== child.id);
-            console.log("Section active childs: ", activeChilds);
             props.parentRecordChanger(props.id, activeChilds);
             return;
         }
