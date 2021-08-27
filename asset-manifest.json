@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/Projeto08_DrivenEats_React/static/js/main.ad7862a7.chunk.js",
+    "main.js.map": "/Projeto08_DrivenEats_React/static/js/main.ad7862a7.chunk.js.map",
+    "runtime-main.js": "/Projeto08_DrivenEats_React/static/js/runtime-main.88ddf3fd.js",
+    "runtime-main.js.map": "/Projeto08_DrivenEats_React/static/js/runtime-main.88ddf3fd.js.map",
+    "static/js/2.ff7671db.chunk.js": "/Projeto08_DrivenEats_React/static/js/2.ff7671db.chunk.js",
+    "static/js/2.ff7671db.chunk.js.map": "/Projeto08_DrivenEats_React/static/js/2.ff7671db.chunk.js.map",
+    "index.html": "/Projeto08_DrivenEats_React/index.html",
+    "static/js/2.ff7671db.chunk.js.LICENSE.txt": "/Projeto08_DrivenEats_React/static/js/2.ff7671db.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.88ddf3fd.js",
+    "static/js/2.ff7671db.chunk.js",
+    "static/js/main.ad7862a7.chunk.js"
+  ]
+}
