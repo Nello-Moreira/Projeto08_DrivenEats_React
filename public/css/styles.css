@@ -202,12 +202,14 @@ ul:hover::-webkit-scrollbar-thumb:hover {
 }
 
 .order-buttons-container {
-    width: var(--bill-width);
     margin: 25px var(--left-space);
     gap: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    top: 40vh;
+    left: calc(var(--left-space) + var(--bill-width) + 5vw);
 }
 
 .order-buttons-container>button:first-child {
@@ -239,9 +241,10 @@ ul:hover::-webkit-scrollbar-thumb:hover {
 .bill-item, .bill-quantity, .bill-price {
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
 }
 
-.bill-quantity{
+.bill-quantity {
     margin: 0 10px;
 }
 
@@ -284,6 +287,8 @@ ul:hover::-webkit-scrollbar-thumb:hover {
         margin: 0 auto;
     }
     .order-buttons-container {
+        position: static;
+        width: var(--bill-width);
         margin: 25px auto 0;
     }
     .order-buttons-container>button:first-child {

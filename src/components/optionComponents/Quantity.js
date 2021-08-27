@@ -9,12 +9,10 @@ export default function Quantity(props) {
             setValue(value - 1);
         }
     }
-
     const valueIncreaser = () => {
         props.parentQuantityHandler(value + 1);
         setValue(value + 1);
     }
-
     return (
         <div className="quantity-container hidden">
             <button className="remove-button" onClick={valueDecreaser}>-</button>

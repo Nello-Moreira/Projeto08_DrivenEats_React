@@ -17,7 +17,6 @@ export default function Option(props) {
             setIsActive(false);
         }
     }
-
     const [isActive, setIsActive] = useState(props.isActive);
 
     const optionClickHandler = () => {
@@ -27,12 +26,10 @@ export default function Option(props) {
             price,
             itemQuantity
         });
-
         if (!isActive) {
             setIsActive(true);
         }
     };
-
     return (
         <li className={isActive ? "option active" : "option"} onClick={optionClickHandler}>
             <img src={img} alt="dessert option" />
