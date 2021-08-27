@@ -1,37 +1,19 @@
+import getTotalCost from "./totalCost"
+
 export default function BillBody(props) {
-    const priceToNumber = priceString => Number(priceString.replace(",", "."));
-    const reducerFunction = (accumulator, currentValue) => accumulator + currentValue
-
-    const getSectionTotalPrice = (section) => (
-        section
-            .map(item => priceToNumber(item.price) * item.itemQuantity)
-            .reduce(reducerFunction)
-    )
-
-    const getTotalPrice = () => (
-        Object.keys(props.allSections)
-            .map(section => (getSectionTotalPrice(props.allSections[section])))
-            .reduce(reducerFunction)
-            .toFixed(2).toString().replace(".", ",")
-    )
+    const reducerFunction = (accumulator, currentValue) => (accumulator + currentValue);
 
     const getSectionTotalItems = (section) => (
         section
             .map(item => item.itemQuantity)
             .reduce(reducerFunction)
-    )
+    );
 
     const getTotalItems = () => (
         Object.keys(props.allSections)
             .map(section => (getSectionTotalItems(props.allSections[section])))
             .reduce(reducerFunction)
-    )
-
-
-    console.log(props.allSections);
-    if (Object.keys(props.allSections).length === 0) {
-        return null;
-    }
+    );
 
     return (
         <div className="bill-body">
@@ -63,7 +45,7 @@ export default function BillBody(props) {
                         (item, index) => (<p key={index}>{item.price}</p>)
                     ))
                 )}
-                <p className="bill-title">{getTotalPrice()}</p>
+                <p className="bill-title">{getTotalCost(props.allSections)}</p>
             </div>
 
         </div>
