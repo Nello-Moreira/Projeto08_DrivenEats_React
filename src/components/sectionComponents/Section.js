@@ -2,7 +2,9 @@ import SectionTitle from './SectionTitle'
 import Option from '../optionComponents/Option'
 
 export default function Section(props) {
-    let activeChilds = [];
+    let activeChilds = props.activeChilds;
+
+    console.log("re-renderizou section: ", activeChilds);
 
     const childActivationHandler = (child) => {
         const isNewChild = activeChilds.filter(element => element.id === child.id).length === 0;
@@ -13,27 +15,29 @@ export default function Section(props) {
         }
         if (child.itemQuantity === 0) {
             activeChilds = activeChilds.filter(element => element.id !== child.id);
+            console.log("Section active childs: ", activeChilds);
             props.parentRecordChanger(props.id, activeChilds);
             return;
         }
         activeChilds.forEach((element, index, thisArray) => {
-            if (element.id === child.id) {
+            if (element.id === child.id && element.itemQuantity !== child.itemQuantity) {
                 thisArray[index] = child;
+                props.parentRecordChanger(props.id, activeChilds);
             }
         })
-        props.parentRecordChanger(props.id, activeChilds);
     };
 
     return (
         <section id={props.id} className="section">
             <SectionTitle title={props.title} />
             <ul>
-                {props.options.map((option, key) => (
+                {props.options.map((option, index) => (
                     <Option
                         optionInfos={option}
                         parentActivationHandler={childActivationHandler}
-                        id={key}
-                        key={key}
+                        isActive={activeChilds.filter(obj => obj.id === index).length > 0}
+                        id={index}
+                        key={index}
                     />
                 ))}
             </ul>

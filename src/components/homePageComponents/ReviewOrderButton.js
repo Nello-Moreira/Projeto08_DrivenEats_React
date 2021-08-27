@@ -1,12 +1,9 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ReviewOrderButton(props) {
-    const [isEnabled, setIsEnabled] = useState(true);
-
     return (
         <div className="bottom-button-container">
-            <Button isEnabled={isEnabled} redirectTo={props.redirectTo}/>
+            <Button isEnabled={props.isEnabled} redirectTo={props.redirectTo}/>
         </div>
     )
 }

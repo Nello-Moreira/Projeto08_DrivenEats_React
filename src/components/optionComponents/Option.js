@@ -12,13 +12,13 @@ export default function Option(props) {
     let itemQuantity = 1;
     const quantityHandler = (quantity) => {
         itemQuantity = quantity;
-        
+
         if (quantity === 0) {
             setIsActive(false);
         }
     }
 
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(props.isActive);
 
     const optionClickHandler = () => {
         props.parentActivationHandler({

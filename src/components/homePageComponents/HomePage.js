@@ -1,5 +1,6 @@
 import Section from "../sectionComponents/Section";
 import ReviewOrderButton from './ReviewOrderButton';
+import React, { useState } from "react";
 
 const menu = [
     {
@@ -48,24 +49,47 @@ const menu = [
     }
 ];
 
-export default function HomePage(props) {
-    const active = {
-        meal: {},
-        drink: {},
-        dessert: {}
-    };
+const activeOptions = {
+    meal: [],
+    drink: [],
+    dessert: []
+};
 
-    const activeModifier = (section, activeOptions) => {
-        active[section] = activeOptions;
-        console.log("active: ", active);
+console.log("fora");
+console.log("homepage");
+
+
+export default function HomePage(props) {
+    const isSectionEmpty = Object.values(activeOptions).map(optionsArray=>optionsArray.length>0);
+    const isActiveOptionsFull = !(isSectionEmpty.includes(false));
+
+    const [isEnabled, setIsEnabled] = useState(isActiveOptionsFull);
+
+    const activeModifier = (section, sectionActiveOptions) => {
+        activeOptions[section] = sectionActiveOptions;
+
+        if (activeOptions.meal.length > 0 && activeOptions.drink.length > 0 && activeOptions.dessert.length > 0) {
+            setIsEnabled(true);
+            props.saveOptions(activeOptions);
+            return;
+        }
+        setIsEnabled(false);
     }
 
     return (
         <>
             <div className="content">
-                {menu.map((section, key) => (<Section id={section.id} title={section.title} options={section.options} parentRecordChanger={activeModifier} key={key} />))}
+                {menu.map((section, key) => (
+                    <Section
+                        id={section.id}
+                        title={section.title}
+                        options={section.options}
+                        activeChilds={activeOptions[section.id]}
+                        parentRecordChanger={activeModifier}
+                        key={key}
+                    />))}
             </div>
-            <ReviewOrderButton redirectTo={props.redirectTo} />
+            <ReviewOrderButton redirectTo={props.redirectTo} isEnabled={isEnabled} />
         </>
     )
 }
