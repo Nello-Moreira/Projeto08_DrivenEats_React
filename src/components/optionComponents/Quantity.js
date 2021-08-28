@@ -1,3 +1,4 @@
+import "./quantity.css";
 import React, { useState } from "react";
 
 export default function Quantity(props) {
@@ -14,7 +15,7 @@ export default function Quantity(props) {
         setValue(value + 1);
     }
     return (
-        <div className="quantity-container hidden">
+        <div className="quantity-container">
             <button className="remove-button" onClick={valueDecreaser}>-</button>
             <p>{value}</p>
             <button className="add-button" onClick={valueIncreaser}>+</button>

@@ -1,0 +1,11 @@
+:root {
+    --left-space: 21px;
+}
+
+body {
+    background-color: rgb(229, 229, 229);
+}
+
+.content {
+    margin-bottom: calc(var(--button-div-height) + 15px);
+}

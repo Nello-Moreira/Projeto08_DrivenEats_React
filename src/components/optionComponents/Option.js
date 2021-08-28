@@ -1,13 +1,9 @@
+import "./option.css";
 import React, { useState } from "react";
-import Quantity from "./Quantity"
+import Quantity from "./Quantity";
 
-export default function Option(props) {
-    const {
-        name,
-        description,
-        price,
-        img
-    } = props.optionInfos;
+export default function Option({ optionInfos, parentActivationHandler, activeChild, id }) {
+    const { name, description, price, img } = optionInfos;
 
     let itemQuantity = 1;
     const quantityHandler = (quantity) => {
@@ -17,11 +13,11 @@ export default function Option(props) {
             setIsActive(false);
         }
     }
-    const [isActive, setIsActive] = useState(props.isActive);
+    const [isActive, setIsActive] = useState(activeChild);
 
     const optionClickHandler = () => {
-        props.parentActivationHandler({
-            id: props.id,
+        parentActivationHandler({
+            id,
             name,
             price,
             itemQuantity

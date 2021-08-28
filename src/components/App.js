@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./header/Header";
 import HomePage from "./homePageComponents/HomePage";
 import ReviewPage from "./reviewPageComponents/ReviewPage";
 import React, { useState } from "react";
@@ -17,15 +17,15 @@ export default function App() {
 
             <Router>
                 <Switch>
-                    <Route exact path="/">
-                        <>
-                            <HomePage redirectTo="/review" saveOptions={setSelectedOptions} />
-                        </>
-                    </Route>
-
                     <Route path="/review">
                         <>
                             <ReviewPage redirectTo="/" selectedOptions={selectedOptions} />
+                        </>
+                    </Route>
+                    
+                    <Route path="/">
+                        <>
+                            <HomePage redirectTo="/review" saveOptions={setSelectedOptions} />
                         </>
                     </Route>
                 </Switch>

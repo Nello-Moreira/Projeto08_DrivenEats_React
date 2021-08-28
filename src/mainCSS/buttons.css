@@ -1,0 +1,18 @@
+.confirmation-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+}
+
+.enabled-button {
+    background-color: #32B72F;
+    cursor: pointer;
+}
+
+.disabled-button {
+    background-color: #CBCBCB;
+    cursor: not-allowed;
+}

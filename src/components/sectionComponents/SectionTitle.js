@@ -1,5 +1,7 @@
-export default function SectionTitle(props) {
+import "./sectionTitle.css"
+
+export default function SectionTitle({title}) {
     return (
-        <h2 className="section-name">{props.title}</h2>
+        <h2 className="section-name">{title}</h2>
     )
 }

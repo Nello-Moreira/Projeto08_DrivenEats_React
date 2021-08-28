@@ -1,4 +1,5 @@
-import getTotalCost from "./totalCost"
+import "./bill.css";
+import getTotalCost from "../../auxiliar/totalCost"
 
 export default function BillBody(props) {
     const reducerFunction = (accumulator, currentValue) => (accumulator + currentValue);

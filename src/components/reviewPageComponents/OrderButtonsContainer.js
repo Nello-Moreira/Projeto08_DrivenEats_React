@@ -1,5 +1,6 @@
+import "./orderButtons.css";
 import { Link, useHistory } from "react-router-dom";
-import getTotalCost from "./totalCost"
+import getTotalCost from "../../auxiliar/totalCost"
 
 function sendWhatsAppMessage(allSections) {
     const getSectionInfos = (section) => (
