@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.js": "/Projeto08_DrivenEats_React/static/js/main.ad7862a7.chunk.js",
-    "main.js.map": "/Projeto08_DrivenEats_React/static/js/main.ad7862a7.chunk.js.map",
+    "main.css": "/Projeto08_DrivenEats_React/static/css/main.baacdf2f.chunk.css",
+    "main.js": "/Projeto08_DrivenEats_React/static/js/main.3cd478e6.chunk.js",
+    "main.js.map": "/Projeto08_DrivenEats_React/static/js/main.3cd478e6.chunk.js.map",
     "runtime-main.js": "/Projeto08_DrivenEats_React/static/js/runtime-main.88ddf3fd.js",
     "runtime-main.js.map": "/Projeto08_DrivenEats_React/static/js/runtime-main.88ddf3fd.js.map",
-    "static/js/2.ff7671db.chunk.js": "/Projeto08_DrivenEats_React/static/js/2.ff7671db.chunk.js",
-    "static/js/2.ff7671db.chunk.js.map": "/Projeto08_DrivenEats_React/static/js/2.ff7671db.chunk.js.map",
+    "static/js/2.e54ac920.chunk.js": "/Projeto08_DrivenEats_React/static/js/2.e54ac920.chunk.js",
+    "static/js/2.e54ac920.chunk.js.map": "/Projeto08_DrivenEats_React/static/js/2.e54ac920.chunk.js.map",
     "index.html": "/Projeto08_DrivenEats_React/index.html",
-    "static/js/2.ff7671db.chunk.js.LICENSE.txt": "/Projeto08_DrivenEats_React/static/js/2.ff7671db.chunk.js.LICENSE.txt"
+    "static/css/main.baacdf2f.chunk.css.map": "/Projeto08_DrivenEats_React/static/css/main.baacdf2f.chunk.css.map",
+    "static/js/2.e54ac920.chunk.js.LICENSE.txt": "/Projeto08_DrivenEats_React/static/js/2.e54ac920.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.88ddf3fd.js",
-    "static/js/2.ff7671db.chunk.js",
-    "static/js/main.ad7862a7.chunk.js"
+    "static/js/2.e54ac920.chunk.js",
+    "static/css/main.baacdf2f.chunk.css",
+    "static/js/main.3cd478e6.chunk.js"
   ]
 }
