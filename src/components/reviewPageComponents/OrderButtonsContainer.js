@@ -2,9 +2,18 @@ import "./orderButtons.css";
 import { Link, useHistory } from "react-router-dom";
 import getTotalCost from "../../auxiliar/totalCost"
 
-function sendWhatsAppMessage(allSections) {
+export default function OrderButtonsContainer({ selectedOptions, redirectTo }) {
+    return (
+        <div className="order-buttons-container">
+            <OrderButton redirectTo={redirectTo} selectedOptions={selectedOptions} />
+            <CancelOrderButton redirectTo={redirectTo} />
+        </div>
+    )
+}
+
+function sendWhatsAppMessage(selectedOptions) {
     const getSectionInfos = (section) => (
-        allSections[section]
+        selectedOptions[section]
             .map(item => (item.name + `(${item.itemQuantity}x)`))
             .join(', ')
     );
@@ -13,23 +22,23 @@ function sendWhatsAppMessage(allSections) {
         + `- Prato: ${getSectionInfos("meal")}\n`
         + `- Bebida: ${getSectionInfos("drink")}\n`
         + `- Sobremesa: ${getSectionInfos("dessert")}\n`
-        + `Total: ${getTotalCost(allSections)}`
+        + `Total: ${getTotalCost(selectedOptions)}`
     );
     const link = "https://wa.me/5521999812307?text=" + encodeURIComponent(message);
 
     window.open(link, "_blank");
 }
 
-function OrderButton(props) {
+function OrderButton({ redirectTo, selectedOptions }) {
     const history = useHistory();
-    
+
     function resetApp() {
-        history.push(props.redirectTo);
+        history.push(redirectTo);
         window.location.reload();
     }
     return (
         <button className="confirmation-button enabled-button" onClick={() => {
-            sendWhatsAppMessage(props.allSections);
+            sendWhatsAppMessage(selectedOptions);
             resetApp();
         }}>
             Tudo certo, pode pedir!
@@ -37,21 +46,12 @@ function OrderButton(props) {
     )
 }
 
-function CancelOrderButton(props) {
+function CancelOrderButton({ redirectTo }) {
     return (
-        <Link to={props.redirectTo}>
+        <Link to={redirectTo}>
             <button className="cancel-button" >
                 Cancelar
             </button>
         </Link>
-    )
-}
-
-export default function OrderButtonsContainer(props) {
-    return (
-        <div className="order-buttons-container">
-            <OrderButton redirectTo={props.redirectTo} allSections={props.allSections} />
-            <CancelOrderButton redirectTo={props.redirectTo} />
-        </div>
     )
 }

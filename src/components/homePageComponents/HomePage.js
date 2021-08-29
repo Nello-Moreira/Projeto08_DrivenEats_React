@@ -3,24 +3,24 @@ import ReviewOrderButton from './ReviewOrderButton';
 import React, { useState } from "react";
 import menu from "../../auxiliar/data";
 
-const activeOptions = {
+const selectedOptions = {
     meal: [],
     drink: [],
     dessert: []
 };
 
 export default function HomePage({ redirectTo, saveOptions }) {
-    const isSectionEmpty = Object.values(activeOptions).map(optionsArray => optionsArray.length > 0);
+    const isSectionEmpty = Object.values(selectedOptions).map(optionsArray => optionsArray.length > 0);
     const isActiveOptionsFull = !(isSectionEmpty.includes(false));
 
     const [isEnabled, setIsEnabled] = useState(isActiveOptionsFull);
 
     const activeModifier = (section, sectionActiveOptions) => {
-        activeOptions[section] = sectionActiveOptions;
+        selectedOptions[section] = sectionActiveOptions;
 
-        if (activeOptions.meal.length > 0 && activeOptions.drink.length > 0 && activeOptions.dessert.length > 0) {
+        if (selectedOptions.meal.length > 0 && selectedOptions.drink.length > 0 && selectedOptions.dessert.length > 0) {
             setIsEnabled(true);
-            saveOptions(activeOptions);
+            saveOptions(selectedOptions);
             return;
         }
         setIsEnabled(false);
@@ -32,7 +32,7 @@ export default function HomePage({ redirectTo, saveOptions }) {
                 {menu.map((section, key) => (
                     <Section
                         sectionInfos={section}
-                        activeChilds={activeOptions[section.id]}
+                        activeChilds={selectedOptions[section.id]}
                         parentRecordChanger={activeModifier}
                         key={key}
                     />))}

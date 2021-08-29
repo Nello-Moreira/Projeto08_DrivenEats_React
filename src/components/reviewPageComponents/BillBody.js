@@ -1,7 +1,7 @@
 import "./bill.css";
 import getTotalCost from "../../auxiliar/totalCost"
 
-export default function BillBody(props) {
+export default function BillBody({ selectedOptions }) {
     const reducerFunction = (accumulator, currentValue) => (accumulator + currentValue);
 
     const getSectionTotalItems = (section) => (
@@ -11,8 +11,8 @@ export default function BillBody(props) {
     );
 
     const getTotalItems = () => (
-        Object.keys(props.allSections)
-            .map(section => (getSectionTotalItems(props.allSections[section])))
+        Object.keys(selectedOptions)
+            .map(section => (getSectionTotalItems(selectedOptions[section])))
             .reduce(reducerFunction)
     );
 
@@ -21,8 +21,8 @@ export default function BillBody(props) {
 
             <div className="bill-item">
                 <p className="bill-title">Item</p>
-                {Object.keys(props.allSections).map(
-                    section => (props.allSections[section].map(
+                {Object.keys(selectedOptions).map(
+                    section => (selectedOptions[section].map(
                         (item, index) => (<p key={index}>{item.name}</p>)
                     ))
                 )}
@@ -31,8 +31,8 @@ export default function BillBody(props) {
 
             <div className="bill-quantity">
                 <p className="bill-title">Quantidade</p>
-                {Object.keys(props.allSections).map(
-                    section => (props.allSections[section].map(
+                {Object.keys(selectedOptions).map(
+                    section => (selectedOptions[section].map(
                         (item, index) => (<p key={index}>{item.itemQuantity}</p>)
                     ))
                 )}
@@ -41,12 +41,12 @@ export default function BillBody(props) {
 
             <div className="bill-price">
                 <p className="bill-title">Preço</p>
-                {Object.keys(props.allSections).map(
-                    section => (props.allSections[section].map(
+                {Object.keys(selectedOptions).map(
+                    section => (selectedOptions[section].map(
                         (item, index) => (<p key={index}>{item.price}</p>)
                     ))
                 )}
-                <p className="bill-title">{getTotalCost(props.allSections)}</p>
+                <p className="bill-title">{getTotalCost(selectedOptions)}</p>
             </div>
 
         </div>

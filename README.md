@@ -11,4 +11,4 @@ This is the 8th project made by me to
 * JavaScript || ReactJS
 
 # See the result here
-[*Project url*](https://nello-moreira.github.io/Projeto03_DrivenEats/)
+[*Project url*](https://nello-moreira.github.io/Projeto08_DrivenEats_React/)

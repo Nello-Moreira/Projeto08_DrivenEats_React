@@ -1,17 +1,17 @@
 import "./quantity.css";
 import React, { useState } from "react";
 
-export default function Quantity(props) {
+export default function Quantity({parentQuantityHandler}) {
     const [value, setValue] = useState(1);
 
     const valueDecreaser = () => {
         if (value > 0) {
-            props.parentQuantityHandler(value - 1);
+            parentQuantityHandler(value - 1);
             setValue(value - 1);
         }
     }
     const valueIncreaser = () => {
-        props.parentQuantityHandler(value + 1);
+        parentQuantityHandler(value + 1);
         setValue(value + 1);
     }
     return (

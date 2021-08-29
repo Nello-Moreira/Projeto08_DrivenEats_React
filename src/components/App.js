@@ -19,11 +19,11 @@ export default function App() {
                 <Switch>
                     <Route path="/review">
                         <>
-                            <ReviewPage redirectTo="/" selectedOptions={selectedOptions} />
+                            <ReviewPage redirectTo="/Projeto08_DrivenEats_React/" selectedOptions={selectedOptions} />
                         </>
                     </Route>
-                    
-                    <Route path="/">
+
+                    <Route path="/Projeto08_DrivenEats_React/">
                         <>
                             <HomePage redirectTo="/review" saveOptions={setSelectedOptions} />
                         </>

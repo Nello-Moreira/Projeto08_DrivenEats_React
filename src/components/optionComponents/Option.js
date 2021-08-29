@@ -13,6 +13,7 @@ export default function Option({ optionInfos, parentActivationHandler, activeChi
             setIsActive(false);
         }
     }
+
     const [isActive, setIsActive] = useState(activeChild);
 
     const optionClickHandler = () => {
@@ -22,17 +23,24 @@ export default function Option({ optionInfos, parentActivationHandler, activeChi
             price,
             itemQuantity
         });
+        
         if (!isActive) {
             setIsActive(true);
         }
     };
+
     return (
         <li className={isActive ? "option active" : "option"} onClick={optionClickHandler}>
             <img src={img} alt="dessert option" />
             <p className="option-name">{name}</p>
             <p className="option-description">{description}</p>
             <p className="price">R$ {price}</p>
-            {isActive ? <Quantity parentQuantityHandler={quantityHandler} /> : null}
+            {
+                isActive ?
+                    <Quantity parentQuantityHandler={quantityHandler} />
+                    :
+                    null
+            }
         </li>
     )
 }
