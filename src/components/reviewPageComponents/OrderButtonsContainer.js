@@ -14,7 +14,7 @@ export default function OrderButtonsContainer({ selectedOptions, redirectTo }) {
 function sendWhatsAppMessage(selectedOptions) {
     const getSectionInfos = (section) => (
         selectedOptions[section]
-            .map(item => (item.name + `(${item.itemQuantity}x)`))
+            .map(item => item.itemQuantity > 1 ? (item.name + ` (${item.itemQuantity}x)`) : (item.name))
             .join(', ')
     );
     const message = (
