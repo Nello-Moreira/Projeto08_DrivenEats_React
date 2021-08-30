@@ -1,8 +1,8 @@
 import "./quantity.css";
 import React, { useState } from "react";
 
-export default function Quantity({parentQuantityHandler}) {
-    const [value, setValue] = useState(1);
+export default function Quantity({ initialQuantity, parentQuantityHandler }) {
+    const [value, setValue] = useState(initialQuantity);
 
     const valueDecreaser = () => {
         if (value > 0) {

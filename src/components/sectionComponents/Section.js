@@ -26,6 +26,11 @@ export default function Section({ sectionInfos, activeChilds, parentRecordChange
         })
     };
 
+    const optionQuantity = (optionId) => {
+        let child = activeChilds.filter(obj => obj.id === optionId)[0];
+        return child ? child.itemQuantity : 0;
+    }
+
     return (
         <section id={id} className="section">
             <SectionTitle title={title} />
@@ -34,7 +39,7 @@ export default function Section({ sectionInfos, activeChilds, parentRecordChange
                     <Option
                         optionInfos={option}
                         parentActivationHandler={childActivationHandler}
-                        activeChild={activeChilds.filter(obj => obj.id === index).length > 0}
+                        initialQuantity={optionQuantity(index)}
                         id={index}
                         key={index}
                     />

@@ -2,31 +2,28 @@ import "./option.css";
 import React, { useState } from "react";
 import Quantity from "./Quantity";
 
-export default function Option({ optionInfos, parentActivationHandler, activeChild, id }) {
+export default function Option({ optionInfos, parentActivationHandler, initialQuantity, id }) {
     const { name, description, price, img } = optionInfos;
 
-    let itemQuantity = 1;
     const quantityHandler = (quantity) => {
-        itemQuantity = quantity;
+        initialQuantity = quantity;
 
-        if (quantity === 0) {
-            setIsActive(false);
-        }
+        if (quantity === 0) setIsActive(false);
     }
 
-    const [isActive, setIsActive] = useState(activeChild);
+    const [isActive, setIsActive] = useState(initialQuantity > 0 ? true : false);
 
     const optionClickHandler = () => {
+        if (initialQuantity === 0) quantityHandler(1);
+
         parentActivationHandler({
             id,
             name,
             price,
-            itemQuantity
+            itemQuantity: initialQuantity
         });
-        
-        if (!isActive) {
-            setIsActive(true);
-        }
+
+        if (!isActive) setIsActive(true);
     };
 
     return (
@@ -37,7 +34,7 @@ export default function Option({ optionInfos, parentActivationHandler, activeChi
             <p className="price">R$ {price}</p>
             {
                 isActive ?
-                    <Quantity parentQuantityHandler={quantityHandler} />
+                    <Quantity initialQuantity={initialQuantity > 0 ? initialQuantity : 1} parentQuantityHandler={quantityHandler} />
                     :
                     null
             }
