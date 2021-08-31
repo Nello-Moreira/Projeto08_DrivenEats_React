@@ -14,15 +14,15 @@ export default function Option({ optionInfos, parentActivationHandler, initialQu
     const [isActive, setIsActive] = useState(initialQuantity > 0 ? true : false);
 
     const optionClickHandler = () => {
-        if (initialQuantity === 0) quantityHandler(1);
-
         parentActivationHandler({
             id,
             name,
             price,
             itemQuantity: initialQuantity
         });
-
+        
+        if (initialQuantity === 0) quantityHandler(1);
+        
         if (!isActive) setIsActive(true);
     };
 
