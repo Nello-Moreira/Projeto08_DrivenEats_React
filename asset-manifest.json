@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Projeto08_DrivenEats_React/static/css/main.baacdf2f.chunk.css",
-    "main.js": "/Projeto08_DrivenEats_React/static/js/main.abaab839.chunk.js",
-    "main.js.map": "/Projeto08_DrivenEats_React/static/js/main.abaab839.chunk.js.map",
+    "main.js": "/Projeto08_DrivenEats_React/static/js/main.da237fd8.chunk.js",
+    "main.js.map": "/Projeto08_DrivenEats_React/static/js/main.da237fd8.chunk.js.map",
     "runtime-main.js": "/Projeto08_DrivenEats_React/static/js/runtime-main.88ddf3fd.js",
     "runtime-main.js.map": "/Projeto08_DrivenEats_React/static/js/runtime-main.88ddf3fd.js.map",
     "static/js/2.e54ac920.chunk.js": "/Projeto08_DrivenEats_React/static/js/2.e54ac920.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.88ddf3fd.js",
     "static/js/2.e54ac920.chunk.js",
     "static/css/main.baacdf2f.chunk.css",
-    "static/js/main.abaab839.chunk.js"
+    "static/js/main.da237fd8.chunk.js"
   ]
 }
